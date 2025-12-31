@@ -4,7 +4,33 @@ import time
 # 1. 页面配置
 st.set_page_config(page_title="To YOU", page_icon="✨",
 layout="centered")
+st.markdown("""
+    <style>
+    /* 1. 全局背景色（保持之前的黑色电影感） */
+    .stApp {
+        background-color: #0e1117;
+        color: white;
+    }
+    
+    /* 2. 专门修改按钮的样式 */
+    div.stButton > button {
+        background-color: #ff4b4b; /* 按钮背景色：新年红 */
+        color: white;              /* 按钮文字色：白色 */
+        border-radius: 20px;       /* 让按钮变圆润一点 */
+        border: 2px solid #ff4b4b; /* 边框颜色 */
+        font-weight: bold;         /*文字加粗 */
+        padding: 10px 20px;        /* 增加按钮内部空间 */
+        transition: all 0.3s;      /* 让鼠标放上去的变色更丝滑 */
+    }
 
+    /* 3. 鼠标悬停在按钮上时的样式 */
+    div.stButton > button:hover {
+        background-color: #ff0000; /* 鼠标放上去变深红 */
+        color: #ffff00;            /* 文字变金黄色 */
+        border-color: #ffff00;     /* 边框变金黄色 */
+    }
+    </style>
+    """, unsafe_allow_html=True)
 # 2. 隐藏无关菜单
 st.markdown("""
     <style>
