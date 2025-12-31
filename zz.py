@@ -1,0 +1,62 @@
+import streamlit as st
+import time
+
+# 1. 页面配置
+st.set_page_config(page_title="To YOU", page_icon="✨",
+layout="centered")
+
+# 2. 隐藏无关菜单
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stApp {
+        background-color: #0e1117; /* 黑色背景更有电影感 */
+        color: white;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# 3. 标题区
+st.title("🎞️ 2025")
+st.caption("往下滑👇")
+
+# 4. 背景音乐 (设置 autoplay 尽量自动播放，但在部分手机浏览器需手动点)
+# 替换为你的音乐文件路径，或者网络链接
+audio_file = open('方大同-才二十三-臻品母带2.0.mp3', 'rb') # 假设你本地有名为 bgm.mp3 的文件
+audio_bytes = audio_file.read()
+st.audio(audio_bytes, format='audio/mp3', start_time=0)
+
+# 5. 回忆照片墙 (使用 Expander 折叠，或者直接列出)
+st.header("📸 ")
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    # 替换为你的照片文件名
+    st.image("7.jpg",  use_column_width=True)
+    st.image("3.jpg",  use_column_width=True)
+with col2:
+    st.image("8.jpg",  use_column_width=True)
+    st.image("5.jpg",  use_column_width=True)
+with col3:
+    st.image("9.jpg",  use_column_width=True)
+    st.image("6.jpg",  use_column_width=True)
+
+# 7. 心愿与祝福 (交互环节)
+st.divider() # 分割线
+st.header("💌 ")
+
+# 制造一点神秘感，让对方点击才显示
+if st.button("点我"):
+    st.balloons() # 再次调用气球特效
+    
+    st.markdown("""
+    ###     To whisky(hh莫名想起你那小号）
+    新年快乐🥳
+    永远开心
+    *Always by your side.*
+    """)
+
+# 底部署名
+st.markdown("---")
+st.markdown("*Made by lqz*")
